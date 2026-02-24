@@ -1,11 +1,11 @@
 export default {
-	title: "Eleventy Base Blog v9",
+	title: "Chaptered Literary Site",
 	url: "https://example.com/",
 	language: "en",
-	description: "I am writing about my experiences as a naval navel-gazer.",
+	description: "An Eleventy starter for chaptered, long-form literary projects.",
 	author: {
-		name: "Your Name Here",
+		name: "Your Name",
 		email: "youremailaddress@example.com",
-		url: "https://example.com/about-me/"
+		url: "https://example.com/"
 	}
 }

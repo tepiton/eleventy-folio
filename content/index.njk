@@ -1,29 +1,27 @@
----js
-const eleventyNavigation = {
-	key: "Home",
-	order: 1
-};
-
-const numberOfLatestPostsToShow = 3;
 ---
-{% set postsCount = collections.posts | length %}
-{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
+layout: layouts/home.njk
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+<section class="hero">
+	<h1>{{ book.title }}</h1>
+	<p class="subtitle">{{ book.subtitle }}</p>
+	<p class="lede">{{ book.description }}</p>
+</section>
 
-{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
-{% include "postslist.njk" %}
-
-{% set morePosts = postsCount - numberOfLatestPostsToShow %}
-{% if morePosts > 0 %}
-<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog.njk">the archive</a>.</p>
+{% if collections.chapters and collections.chapters.length %}
+<section>
+	<h2>Chapters</h2>
+	<ol class="chapter-list">
+	{% for chapter in collections.chapters %}
+		<li>
+			<a class="chapter-link" href="{{ chapter.url }}">
+				<strong>{{ chapter.data.order }}. {{ chapter.data.title }}</strong>
+				{% if chapter.data.dek %}<small>{{ chapter.data.dek }}</small>{% endif %}
+			</a>
+		</li>
+	{% endfor %}
+	</ol>
+</section>
 {% endif %}
-
-{# List every content page in the project #}
-{#
-<ul>
-	{%- for entry in collections.all %}
-	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
-	{%- endfor %}
-</ul>
-#}
