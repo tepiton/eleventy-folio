@@ -131,3 +131,17 @@ Use `codex-tree` as base and selectively port cleanup improvements inspired by `
 1. Remove disabled legacy blog/tag/post artifacts entirely.
 2. Trim unused dependencies inherited from the original blog starter.
 3. Optionally rename the TOC route from `/blog/` to a semantically literary route such as `/contents/`.
+
+---
+
+## README rewrite (2026-02-25)
+
+Rewrote `README.md` from scratch. The previous README had the wrong title ("11ty Chaptered Literary Base" — that's chapbook's description) and did not document the two-data-file structure.
+
+New README covers:
+- Correct repo name `eleventy-folio` as title
+- Both `_data/book.js` and `_data/metadata.js` documented with their actual schemas and the fallback chain (`book.title or metadata.title`) explained
+- Chapters and blog posts both covered
+- Project structure tree
+- npm scripts table
+- Deploy section noting the workflow handles pathprefix automatically
