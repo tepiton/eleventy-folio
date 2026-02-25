@@ -1,47 +1,113 @@
-# 11ty Chaptered Literary Base
+# eleventy-folio
 
-An Eleventy starter for chaptered narrative sites in the style of projects like `twohorses.lol` and `esther.lol`, updated to modern Eleventy v3 structure.
+An Eleventy v3 starter for chaptered literary sites with both a blog and chapter navigation. Built for long-form prose that mixes serialized chapters with standalone posts.
 
-## Quick Start
+## Quick start
 
-1. Install dependencies:
-
-```bash
+```
+git clone <this-repo> my-project
+cd my-project
 npm install
+npm run start
 ```
 
-2. Run local dev:
+Then open `http://localhost:8080`.
 
-```bash
-npm start
+## Customization
+
+### Site metadata
+
+This template uses two data files:
+
+**`_data/book.js`** — the work itself:
+
+```js
+export default {
+  title: "The Sample Book",
+  subtitle: "A starter for chaptered narrative sites",
+  author: "Your Name",
+  description: "Replace this with a one-sentence hook for your story.",
+}
 ```
 
-3. Build production output:
+**`_data/metadata.js`** — site and SEO settings:
 
-```bash
-npm run build
+```js
+export default {
+  title: "Chaptered Literary Site",
+  url: "https://example.com/",
+  language: "en",
+  description: "An Eleventy starter for chaptered, long-form literary projects.",
+  author: {
+    name: "Your Name",
+    email: "youremailaddress@example.com",
+    url: "https://example.com/"
+  }
+}
 ```
 
-## Project Shape
+`book.title` and `book.author` take precedence in the layout; `metadata` provides the URL, language, and SEO fallbacks.
 
-- `_data/book.js`: Core book metadata (`title`, `subtitle`, `author`, `description`).
-- `content/chapters/`: One Markdown file per chapter.
-- `content/blog.njk`: Table of contents page (kept at this path for compatibility).
-- `content/index.njk`: Front page with chapter links.
-- `_includes/layouts/chapter.njk`: Chapter page layout with previous/next chapter links.
+### Chapters
 
-## Creating a New Book
+Add files to `content/chapters/`. Each needs front matter:
 
-1. Update `_data/book.js` and `_data/metadata.js`.
-2. Replace the sample chapter files in `content/chapters/`.
-3. Set chapter front matter fields:
-   - `title`
-   - `order` (numeric sort order)
-   - `chapterNumber` (display label: `I`, `II`, `1`, etc.)
-   - `dek` (optional one-line subtitle)
-4. Update homepage/about copy.
+```yaml
+---
+title: The Title of This Chapter
+order: 1
+dek: Optional one-line subtitle shown in the TOC
+---
+```
 
-## Notes
+- `order` controls sort order in the TOC and prev/next navigation
+- `dek` is optional
 
-- Legacy blog/tag outputs from `eleventy-base-blog` are disabled.
-- `content/blog/` is retained as sample material but does not render.
+### Blog posts
+
+Add files to `content/blog/`. These use the standard post layout with tags and are listed on the blog index.
+
+### Home page
+
+Edit `content/index.njk`. The hero section pulls from `book.js`. Below it, the chapter list is generated automatically.
+
+### About page
+
+Edit `content/about.md`.
+
+## Project structure
+
+```
+content/
+  index.njk              # Home page (hero + chapter list)
+  about.md               # About / colophon
+  blog/                  # Blog posts
+  chapters/
+    chapters.11tydata.js # Tags, layout for all chapters
+    01-threshold.md
+    02-orchard.md
+    ...
+_data/
+  book.js                # Title, subtitle, author, description
+  metadata.js            # URL, language, SEO metadata
+_includes/
+  layouts/
+    base.njk             # HTML shell
+    home.njk             # Home page layout
+    chapter.njk          # Chapter layout with prev/next
+    post.njk             # Blog post layout
+css/
+  index.css              # All styles
+```
+
+## npm scripts
+
+| Command | Description |
+|:--------|:------------|
+| `npm run start` | Dev server with live reload |
+| `npm run build` | Production build to `_site/` |
+| `npm run debug` | Build with Eleventy debug output |
+
+## Deploy
+
+The included `.github/workflows/pages.yml` builds and deploys to GitHub Pages on push to `main`. No configuration needed for custom domains — the workflow detects the repo name and sets the path prefix automatically.
