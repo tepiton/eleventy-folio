@@ -81,3 +81,53 @@ Create a modern Eleventy v3 base for chaptered literary sites, using local refer
 - Chapter navigation, contents page, and sample chapter workflow are in place.
 - Dev server scripts use port `8084`.
 - Server host visibility is configured with `showAllHosts: true`.
+
+## Wrap-up: Three-Implementation Review
+
+Date: February 25, 2026
+
+Performed a comparative review of three parallel implementations of the same task:
+
+- `codex-tree` (this repository)
+- `../claude-tree`
+- `../opencode-tree`
+
+### What was reviewed
+
+- Repository structure and changed files
+- Eleventy config, layouts, content model, CSS approach
+- README quality and customization guidance
+- Build behavior and generated output
+
+### Validation method
+
+- Ran `npm run build` in each tree where possible.
+- For fair write-permission behavior, also ran:
+  - `npx @11ty/eleventy --output=/tmp/three-takes-codex`
+  - `npx @11ty/eleventy --output=/tmp/three-takes-claude`
+  - `npx @11ty/eleventy --output=/tmp/three-takes-opencode`
+
+All three produced valid static output with chapter pages when writing to `/tmp`.
+
+### Outcome
+
+- Added comparative report: `docs/THREE-TAKES.md`
+- Report includes:
+  - scorecard across major criteria
+  - strengths/weaknesses for each implementation
+  - recommendation and practical synthesis
+
+### Key conclusion recorded
+
+- `claude-tree` scored highest for architectural cleanliness and overall implementation quality.
+- `codex-tree` remains the best immediate fit for this repo’s current requirements because it already matches the requested dev behavior:
+  - all-host serving visibility
+  - explicit port `8084`
+
+### Next-step direction noted
+
+Use `codex-tree` as base and selectively port cleanup improvements inspired by `claude-tree`:
+
+1. Remove disabled legacy blog/tag/post artifacts entirely.
+2. Trim unused dependencies inherited from the original blog starter.
+3. Optionally rename the TOC route from `/blog/` to a semantically literary route such as `/contents/`.
