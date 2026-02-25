@@ -75,6 +75,35 @@ Edit `content/index.njk`. The hero section pulls from `book.js`. Below it, the c
 
 Edit `content/about.md`.
 
+### Fonts, colors, and styles
+
+Colors are CSS custom properties at the top of `css/index.css`:
+
+```css
+:root {
+  --bg: #faf6ee;      /* page background */
+  --paper: #fffdf8;   /* main content column */
+  --ink: #1c1a18;     /* body text */
+  --muted: #6d685f;   /* secondary text, captions */
+  --rule: #d6d0c6;    /* borders and dividers */
+  --accent: #8d3f2b;  /* links */
+}
+```
+
+Change any of these to retheme the site without touching the rest of the stylesheet.
+
+**Body font:** The body font stack is set directly on the `body` rule in `css/index.css`:
+
+```css
+body {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", serif;
+}
+```
+
+Replace that value with any font family you want to use.
+
+**Web fonts:** Add a `<link>` to your font provider (Google Fonts, Adobe Fonts, Bunny Fonts, etc.) in `_includes/layouts/base.njk`, then update the `font-family` value on `body` in `css/index.css` to match.
+
 ## Project structure
 
 ```
