@@ -145,3 +145,26 @@ New README covers:
 - Project structure tree
 - npm scripts table
 - Deploy section noting the workflow handles pathprefix automatically
+
+---
+
+## Font parameterization and Typekit (2026-02-27)
+
+Added `--font-body` and `--font-heading` CSS custom properties to `:root` in `css/index.css`:
+
+```css
+--font-body: p22-stickley-pro-text, neue-kabel, Palatino, Georgia, serif;
+--font-heading: neue-kabel, 'Gill Sans', 'Helvetica Neue', sans-serif;
+```
+
+The hardcoded `font-family` on `body` was replaced with `var(--font-body)`.
+
+Baked the two esther.lol Typekit kit IDs directly into `base.njk` rather than routing through `metadata.js`. Since the CSS vars reference these font names explicitly, the coupling is honest.
+
+## Site URL, title, and nav cleanup (2026-02-27)
+
+- Set `metadata.url` to `https://orobia.net/`
+- Set `book.title` to `"Folio"`
+- Set `metadata.title` to `"Folio"`
+- Updated `content/about.md` to reference orobia.net
+- Removed the `eleventyNavigation` block from `content/index.njk` — the home page no longer generates a "Home" nav link
