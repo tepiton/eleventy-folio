@@ -1,5 +1,5 @@
 export default {
-	title: "Chaptered Literary Site",
+	title: "Folio",
 	url: "https://example.com/",
 	language: "en",
 	description: "An Eleventy starter for chaptered, long-form literary projects.",
