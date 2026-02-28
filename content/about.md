@@ -7,6 +7,8 @@ eleventyNavigation:
 ---
 # About
 
+This site is served from [orobia.net](https://orobia.net/).
+
 This starter is designed for long-form literary work published in chapters.
 
 The core workflow:
