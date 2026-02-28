@@ -5,6 +5,8 @@
 	--muted: #6d685f;
 	--rule: #d6d0c6;
 	--accent: #8d3f2b;
+	--font-body: p22-stickley-pro-text, neue-kabel, Palatino, Georgia, serif;
+	--font-heading: neue-kabel, 'Gill Sans', 'Helvetica Neue', sans-serif;
 }
 
 * {
@@ -22,7 +24,7 @@ body {
 		radial-gradient(circle at 8% 4%, #ece3d3 0, transparent 32%),
 		radial-gradient(circle at 92% 10%, #efe6d7 0, transparent 26%),
 		var(--bg);
-	font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", serif;
+	font-family: var(--font-body);
 	line-height: 1.65;
 }
 
