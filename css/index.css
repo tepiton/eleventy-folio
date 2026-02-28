@@ -89,6 +89,10 @@ footer {
 	text-decoration-thickness: 2px;
 }
 
+h1, h2 {
+	font-family: var(--font-heading);
+}
+
 .hero h1 {
 	font-family: var(--font-heading);
 	font-size: clamp(2rem, 1.3rem + 2.2vw, 3.5rem);
@@ -120,6 +124,7 @@ footer {
 }
 
 .chapter-link {
+	font-family: var(--font-heading);
 	text-decoration: none;
 	color: var(--ink);
 }
