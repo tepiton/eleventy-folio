@@ -162,16 +162,12 @@ The hardcoded `font-family` on `body` was replaced with `var(--font-body)`.
 Baked the two esther.lol Typekit kit IDs directly into `base.njk` rather than routing through `metadata.js`. Since the CSS vars reference these font names explicitly, the coupling is honest.
 
 ## Site URL, title, and nav cleanup (2026-02-27)
-
-- Set `metadata.url` to `https://orobia.net/`
-- Set `book.title` to `"Folio"`
-- Set `metadata.title` to `"Folio"`
-- Updated `content/about.md` to reference orobia.net
-- Removed the `eleventyNavigation` block from `content/index.njk` — the home page no longer generates a "Home" nav link
+- Removed the `eleventyNavigation` block from `content/index.njk` - the home page no longer generates a "Home" nav link
 
 ---
 
 ## Content portability (2026-02-28)
+...
 
 Made `content/` fully portable across the three template family (pamphlet, chapbook, folio).
 
