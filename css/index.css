@@ -5,9 +5,46 @@
 	--muted: #6d685f;
 	--rule: #d6d0c6;
 	--accent: #8d3f2b;
+	--accent-hover: #5f2418;
 	--font-body: p22-stickley-pro-text, neue-kabel, Palatino, Georgia, serif;
 	--font-heading: neue-kabel, 'Gill Sans', 'Helvetica Neue', sans-serif;
 	/* for serif headings: --font-heading: var(--font-body); */
+}
+
+/* System dark mode */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #1a1d23;
+		--paper: #1a1d23;
+		--ink: #dad8d8;
+		--muted: #888;
+		--rule: #333;
+		--accent: #c4785f;
+		--accent-hover: #d9a090;
+	}
+}
+
+/* User preference overrides */
+html[data-force-theme="light"],
+body.light-mode {
+	--bg: #faf6ee;
+	--paper: #fffdf8;
+	--ink: #1c1a18;
+	--muted: #6d685f;
+	--rule: #d6d0c6;
+	--accent: #8d3f2b;
+	--accent-hover: #5f2418;
+}
+
+html[data-force-theme="dark"],
+body.dark-mode {
+	--bg: #1a1d23;
+	--paper: #1a1d23;
+	--ink: #dad8d8;
+	--muted: #888;
+	--rule: #333;
+	--accent: #c4785f;
+	--accent-hover: #d9a090;
 }
 
 * {
@@ -37,7 +74,7 @@ a {
 
 a:hover,
 a:focus {
-	color: #5f2418;
+	color: var(--accent-hover);
 }
 
 header,
@@ -211,4 +248,89 @@ h1, h2 {
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+/* Theme Switcher */
+.theme-switcher {
+	position: relative;
+	margin-left: auto;
+}
+
+.theme-toggle {
+	background: none;
+	border: 1px solid transparent;
+	cursor: pointer;
+	font-size: 1em;
+	padding: 0.1em 0.3em;
+	border-radius: 3px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s;
+	color: var(--muted);
+	font-family: inherit;
+}
+
+.theme-toggle:hover {
+	background-color: var(--rule);
+}
+
+.theme-options {
+	position: absolute;
+	right: 0;
+	top: 100%;
+	background-color: var(--bg);
+	border: 1px solid var(--rule);
+	border-radius: 4px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	display: none;
+	flex-direction: column;
+	z-index: 10;
+	min-width: 7em;
+	margin-top: 0.25em;
+	font-size: 0.85rem;
+	font-family: var(--font-heading);
+}
+
+.theme-options.show {
+	display: flex;
+}
+
+.theme-option {
+	padding: 0.4em 0.8em;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	cursor: pointer;
+	transition: background-color 0.2s;
+	text-decoration: none;
+	color: var(--ink);
+}
+
+.theme-option:hover {
+	background-color: var(--rule);
+}
+
+.theme-option:first-child {
+	border-radius: 4px 4px 0 0;
+}
+
+.theme-option:last-child {
+	border-radius: 0 0 4px 4px;
+}
+
+.theme-option-icon {
+	font-size: 0.9em;
+	opacity: 0.8;
+}
+
+@media (max-width: 640px) {
+	.theme-switcher {
+		margin-left: 0;
+	}
+	
+	.theme-options {
+		right: 0;
+		left: auto;
+	}
 }
