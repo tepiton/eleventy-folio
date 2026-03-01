@@ -1,6 +1,13 @@
 # eleventy-folio
 
-An Eleventy v3 starter for chaptered literary sites with both a blog and chapter navigation. Built for long-form prose that mixes serialized chapters with standalone posts.
+An Eleventy v3 starter for chaptered literary sites. Polished defaults, extra features.
+
+Part of a family of interoperable templates:
+- **eleventy-pamphlet** - minimal, single layout
+- **eleventy-chapbook** - separate layouts, feature-rich
+- **eleventy-folio** (this) - polished, with extras
+
+The `content/` directory is portable across all three. Swap templates to change the presentation without touching your content.
 
 ## Quick start
 
@@ -11,42 +18,30 @@ npm install
 npm run start
 ```
 
-Then open `http://localhost:8080`.
+Then open `http://localhost:8084`.
 
 ## Customization
 
 ### Site metadata
 
-This template uses two data files:
-
-**`_data/book.js`** — the work itself:
+Edit `content/_data/metadata.js`:
 
 ```js
 export default {
-  title: "The Sample Book",
-  subtitle: "A starter for chaptered narrative sites",
-  author: "Your Name",
-  description: "Replace this with a one-sentence hook for your story.",
-}
-```
-
-**`_data/metadata.js`** — site and SEO settings:
-
-```js
-export default {
-  title: "Chaptered Literary Site",
+  title: "Your Literary Work",
+  subtitle: "A subtitle or tagline",
   url: "https://example.com/",
   language: "en",
-  description: "An Eleventy starter for chaptered, long-form literary projects.",
+  description: "A description of this work.",
   author: {
     name: "Your Name",
-    email: "youremailaddress@example.com",
+    email: "you@example.com",
     url: "https://example.com/"
   }
 }
 ```
 
-`book.title` and `book.author` take precedence in the layout; `metadata` provides the URL, language, and SEO fallbacks.
+Note: `metadata.js` lives inside `content/_data/` so the entire `content/` directory is self-contained and portable.
 
 ### Chapters
 
@@ -62,14 +57,11 @@ dek: Optional one-line subtitle shown in the TOC
 
 - `order` controls sort order in the TOC and prev/next navigation
 - `dek` is optional
-
-### Blog posts
-
-Add files to `content/blog/`. These use the standard post layout with tags and are listed on the blog index.
+- Filename determines the URL: `01-threshold.md` → `/chapters/01-threshold/`
 
 ### Home page
 
-Edit `content/index.njk`. The hero section pulls from `book.js`. Below it, the chapter list is generated automatically.
+Edit `content/index.njk`. The chapter list is generated automatically.
 
 ### About page
 
@@ -92,48 +84,48 @@ Colors are CSS custom properties at the top of `css/index.css`:
 
 Change any of these to retheme the site without touching the rest of the stylesheet.
 
-**Body font:** The body font stack is set directly on the `body` rule in `css/index.css`:
+**Body font:** The body font stack uses CSS custom properties in `css/index.css`:
 
 ```css
-body {
-  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", serif;
+:root {
+  --font-body: p22-stickley-pro-text, neue-kabel, Palatino, Georgia, serif;
+  --font-heading: neue-kabel, 'Gill Sans', 'Helvetica Neue', sans-serif;
 }
 ```
 
-Replace that value with any font family you want to use.
+**Adobe Fonts (Typekit):** This template uses `p22-stickley-pro-text` and `neue-kabel` from Adobe Fonts. The kit IDs are baked into `_includes/layouts/base.njk`. To use different fonts, replace the Typekit `<link>` tags and update the CSS variables.
 
-**Web fonts:** Add a `<link>` to your font provider (Google Fonts, Adobe Fonts, Bunny Fonts, etc.) in `_includes/layouts/base.njk`, then update the `font-family` value on `body` in `css/index.css` to match.
+**Other web fonts:** Add a `<link>` to your font provider in `_includes/layouts/base.njk` and update the `--font-body` and `--font-heading` variables in `css/index.css` to match.
 
 ## Project structure
 
 ```
 content/
-  index.njk              # Home page (hero + chapter list)
+  _data/
+    metadata.js          # Title, subtitle, author, URL
+  index.njk              # Home page
   about.md               # About / colophon
-  blog/                  # Blog posts
   chapters/
-    chapters.11tydata.js # Tags, layout for all chapters
+    chapters.11tydata.js # Layout for all chapters
     01-threshold.md
     02-orchard.md
     ...
-_data/
-  book.js                # Title, subtitle, author, description
-  metadata.js            # URL, language, SEO metadata
 _includes/
   layouts/
     base.njk             # HTML shell
     home.njk             # Home page layout
     chapter.njk          # Chapter layout with prev/next
-    post.njk             # Blog post layout
 css/
   index.css              # All styles
 ```
+
+The `content/` directory is designed to be portable. Copy it to eleventy-pamphlet or eleventy-chapbook to get a different presentation with the same content.
 
 ## npm scripts
 
 | Command | Description |
 |:--------|:------------|
-| `npm run start` | Dev server with live reload |
+| `npm run start` | Dev server at `localhost:8084` with live reload |
 | `npm run build` | Production build to `_site/` |
 | `npm run debug` | Build with Eleventy debug output |
 

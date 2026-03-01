@@ -1,4 +1,3 @@
 export default {
-	layout: "layouts/chapter.njk",
-	tags: ["chapter"],
+	layout: "layouts/chapter.njk"
 };

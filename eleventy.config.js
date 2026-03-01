@@ -56,7 +56,7 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 
 	eleventyConfig.addCollection("chapters", collectionApi => {
-		return collectionApi.getFilteredByTag("chapter").sort((a, b) => {
+		return collectionApi.getFilteredByGlob("content/chapters/*.md").sort((a, b) => {
 			const aOrder = Number(a.data.order || 0);
 			const bOrder = Number(b.data.order || 0);
 			return aOrder - bOrder;
@@ -98,9 +98,9 @@ export const config = {
 
 	// These are all optional:
 	dir: {
-		input: "content",          // default: "."
-		includes: "../_includes",  // default: "_includes" (`input` relative)
-		data: "../_data",          // default: "_data" (`input` relative)
+		input: "content",
+		includes: "../_includes",
+		data: "_data",
 		output: "_site"
 	},
 

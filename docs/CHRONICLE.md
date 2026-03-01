@@ -168,3 +168,31 @@ Baked the two esther.lol Typekit kit IDs directly into `base.njk` rather than ro
 - Set `metadata.title` to `"Folio"`
 - Updated `content/about.md` to reference orobia.net
 - Removed the `eleventyNavigation` block from `content/index.njk` — the home page no longer generates a "Home" nav link
+
+---
+
+## Content portability (2026-02-28)
+
+Made `content/` fully portable across the three template family (pamphlet, chapbook, folio).
+
+### Changes
+
+1. Merged `_data/book.js` into `content/_data/metadata.js` (single file now)
+2. Deleted `_data/` directory
+3. Updated `eleventy.config.js` data path from `../_data` to `_data`
+4. Changed chapters collection from `getFilteredByTag("chapter")` to `getFilteredByGlob("content/chapters/*.md")`
+5. Simplified `chapters.11tydata.js` - removed `tags`, kept layout only
+6. Updated `base.njk` to remove `book.` references (now uses `metadata.` directly)
+7. Deleted unused files:
+   - `content/blog/` directory
+   - `content/blog.njk`
+   - `content/tags.njk`
+   - `content/tag-pages.njk`
+   - `_includes/postslist.njk`
+   - `_includes/layouts/post.njk`
+   - `css/message-box.css`
+   - `css/prism-diff.css`
+
+### Result
+
+The `content/` directory is now self-contained. Drop it into any of the three templates and it works. Each template provides its own layouts, CSS, and personality.
