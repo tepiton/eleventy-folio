@@ -184,6 +184,25 @@ h1 {
 	margin-top: 0;
 }
 
+summary {
+	font-size: inherit;
+	font-weight: 600;
+	margin-bottom: 0;
+	margin-top: 3em;
+	margin-left: -2em;
+	text-align: left;
+	letter-spacing: -.04em;
+}
+
+details {
+	font-family: monospace;
+	color: var(--color-muted);
+	margin-left: 2em;
+	margin-right: 2em;
+	font-size: 60%;
+	line-height: 1.125;
+}
+
 .links-nextprev {
 	display: flex;
 	justify-content: space-between;
