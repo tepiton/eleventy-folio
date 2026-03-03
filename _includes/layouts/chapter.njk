@@ -3,7 +3,7 @@ layout: layouts/base.njk
 ---
 <article class="chapter">
 	<header class="chapter-header">
-		<p class="chapter-kicker">Chapter {{ chapterNumber or order }}</p>
+		<p class="chapter-kicker">Chapter {{ order }}</p>
 		<h1>{{ title }}</h1>
 		{% if dek %}<p class="chapter-dek">{{ dek }}</p>{% endif %}
 	</header>
