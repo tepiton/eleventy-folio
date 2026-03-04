@@ -43,9 +43,9 @@ export default {
 
 Note: `metadata.js` lives inside `content/_data/` so the entire `content/` directory is self-contained and portable.
 
-### Chapters
+### Single-page vs multi-chapter
 
-Add files to `content/chapters/`. Each needs front matter:
+**Multi-chapter works:** Add files to `content/chapters/`. Each needs front matter:
 
 ```yaml
 ---
@@ -58,6 +58,9 @@ dek: Optional one-line subtitle shown in the TOC
 - `order` controls sort order in the TOC and prev/next navigation
 - `dek` is optional
 - Filename determines the URL: `01-threshold.md` → `/chapters/01-threshold/`
+- Chapter pages get a numbered header and prev/next navigation
+
+**Single-page works:** Delete the `content/chapters/` directory entirely. Your `index.njk` becomes the whole work. It inherits the base layout with no chapter navigation or TOC.
 
 ### Home page
 
