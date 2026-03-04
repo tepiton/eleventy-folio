@@ -2,9 +2,9 @@
 layout: layouts/home.njk
 ---
 <section class="hero">
-	<h1>{{ book.title }}</h1>
-	<p class="subtitle">{{ book.subtitle }}</p>
-	<p class="lede">{{ book.description }}</p>
+	<h1>{{ metadata.title }}</h1>
+	<p class="subtitle">{{ metadata.subtitle }}</p>
+	<p class="lede">{{ metadata.description }}</p>
 </section>
 
 {% if collections.chapters and collections.chapters.length %}
