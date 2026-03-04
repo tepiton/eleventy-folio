@@ -1,18 +1,22 @@
 ---
-layout: layouts/base.njk
 title: About
 eleventyNavigation:
   key: About
-  order: 3
+  order: 2
 ---
-# About
+
+# [{{ title }}](/)
 
 This site is served from [orobia.net](https://orobia.net/).
 
-This starter is designed for long-form literary work published in chapters.
+Replace this page with your own credits, colophon, and acknowledgments.
 
-The core workflow:
+## Colophon
 
-1. Edit `_data/book.js` with your project metadata.
-2. Add chapter files in `content/chapters/` with `order`, `chapterNumber`, and `title`.
-3. Edit the homepage and chapter listing copy to match your project.
+Set in [p22-stickley-pro-text](https://fonts.adobe.com/fonts/p22-stickley-pro) and [neue-kabel](https://fonts.adobe.com/fonts/neue-kabel) via Adobe Fonts. Body text at a fluid size scaling between 16px and 20px. Line measure constrained to 48 characters.
+
+Built with [Eleventy](https://www.11ty.dev/).
+
+## Source
+
+[github.com/tepiton/eleventy-folio](https://github.com/tepiton/eleventy-folio)
