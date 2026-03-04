@@ -62,7 +62,8 @@ export default async function(eleventyConfig) {
 		return collectionApi.getFilteredByGlob("content/chapters/*.md").sort((a, b) => {
 			const aOrder = a.data.order ?? 999;
 			const bOrder = b.data.order ?? 999;
-			return aOrder - bOrder;
+			if (aOrder !== bOrder) return aOrder - bOrder;
+			return a.inputPath.localeCompare(b.inputPath);
 		});
 	});
 
