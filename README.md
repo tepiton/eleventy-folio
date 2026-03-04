@@ -60,6 +60,8 @@ dek: Optional one-line subtitle shown in the TOC
 - Filename determines the URL: `01-threshold.md` → `/chapters/01-threshold/`
 - Chapter pages get a numbered header and prev/next navigation
 
+**Chapter sorting:** Chapters are sorted by `order` property (ascending, fallback to 999 if missing), then by filename alphabetically for determinism.
+
 **Single-page works:** Delete the `content/chapters/` directory entirely. Your `index.md` becomes the whole work. It inherits the base layout with no chapter navigation or TOC.
 
 ### Home page

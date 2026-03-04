@@ -56,6 +56,11 @@ Aligned with pamphlet and chapbook for full portability.
 2. Renamed `index.njk` to `index.md` for consistency with pamphlet
 3. Updated `about.md` with colophon and GitHub source link
 
+### 2026-03-03: Standardize chapter sorting
+
+1. Changed `order` fallback from 0 to 999 (chapters without order sort to end)
+2. Added secondary sort by filename for deterministic ordering when order is equal
+
 ### 2026-02-28: Content portability
 
 Made `content/` portable across all three templates.
