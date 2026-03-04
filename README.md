@@ -60,11 +60,11 @@ dek: Optional one-line subtitle shown in the TOC
 - Filename determines the URL: `01-threshold.md` → `/chapters/01-threshold/`
 - Chapter pages get a numbered header and prev/next navigation
 
-**Single-page works:** Delete the `content/chapters/` directory entirely. Your `index.njk` becomes the whole work. It inherits the base layout with no chapter navigation or TOC.
+**Single-page works:** Delete the `content/chapters/` directory entirely. Your `index.md` becomes the whole work. It inherits the base layout with no chapter navigation or TOC.
 
 ### Home page
 
-Edit `content/index.njk`. The chapter list is generated automatically.
+Edit `content/index.md`. The chapter list is generated automatically.
 
 ### About page
 
@@ -106,7 +106,7 @@ Change any of these to retheme the site without touching the rest of the stylesh
 content/
   _data/
     metadata.js          # Title, subtitle, author, URL
-  index.njk              # Home page
+  index.md               # Home page
   about.md               # About / colophon
   chapters/
     chapters.11tydata.js # Layout for all chapters
