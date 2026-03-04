@@ -60,8 +60,8 @@ export default async function(eleventyConfig) {
 
 	eleventyConfig.addCollection("chapters", collectionApi => {
 		return collectionApi.getFilteredByGlob("content/chapters/*.md").sort((a, b) => {
-			const aOrder = Number(a.data.order || 0);
-			const bOrder = Number(b.data.order || 0);
+			const aOrder = a.data.order ?? 999;
+			const bOrder = b.data.order ?? 999;
 			return aOrder - bOrder;
 		});
 	});
