@@ -28,7 +28,7 @@ content/
     chapters.11tydata.js    # layout: layouts/chapter.njk
     *.md
   content.11tydata.js       # layout: layouts/base.njk
-  index.njk, about.md, 404.md
+  index.md, about.md, 404.md
 _includes/layouts/
   base.njk, home.njk, chapter.njk
 css/index.css
@@ -49,6 +49,12 @@ css/index.css
 Aligned with pamphlet and chapbook for full portability.
 
 1. Updated `chapter.njk` to use `{{ order }}` instead of `{{ chapterNumber or order }}`
+
+### 2026-03-03: Fix and standardize content files
+
+1. Fixed `index.njk` - changed `{{ book.title }}` to `{{ metadata.title }}` (book.js was merged)
+2. Renamed `index.njk` to `index.md` for consistency with pamphlet
+3. Updated `about.md` with colophon and GitHub source link
 
 ### 2026-02-28: Content portability
 
