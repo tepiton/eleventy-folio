@@ -44,6 +44,13 @@ css/index.css
 
 ## Recent Changes
 
+### 2026-03-30: Schema and OG meta alignment
+
+Aligned with chapbook and pamphlet for cross-template parity.
+
+1. Added `image: ""` to `content/_data/metadata.js` (canonical schema now includes image)
+2. Made `og:image` conditional in `base.njk` (only rendered when `metadata.image` is set)
+
 ### 2026-03-03: Simplify chapter layout
 
 Aligned with pamphlet and chapbook for full portability.

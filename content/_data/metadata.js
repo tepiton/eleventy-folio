@@ -8,5 +8,6 @@ export default {
 		name: "Your Name",
 		email: "youremailaddress@example.com",
 		url: "https://orobia.net/"
-	}
+	},
+	image: "",
 }
