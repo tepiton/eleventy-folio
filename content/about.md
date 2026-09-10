@@ -7,8 +7,6 @@ eleventyNavigation:
 
 # [{{ title }}](/)
 
-This site is served from [orobia.net](https://orobia.net/).
-
 Replace this page with your own credits, colophon, and acknowledgments.
 
 ## Colophon
